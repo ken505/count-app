@@ -39,10 +39,7 @@ export default function Home() {
         <title>Count App</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          property="og:url"
-          content="https://counter-app-theta.vercel.app/"
-        />
+        <meta property="og:url" content="https://count-app.vercel.app/" />
         <meta property="og:title" content="Count - App" />
         <meta
           property="og:description"
@@ -50,11 +47,10 @@ export default function Home() {
         />
         <meta
           property="og:image"
-          content=""
+          content="https://user-images.githubusercontent.com/68226398/120092109-90253e80-c14b-11eb-9d1f-9b838f2c7ab1.jpg"
         />
       </Head>
       <InfoModal />
-
       <h1 className="text-4xl text-white dark:text-gray-400 font-bold select-none">
         Count - App
       </h1>
