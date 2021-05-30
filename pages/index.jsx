@@ -1,13 +1,9 @@
 import Head from "next/head";
-import { useCallback, useEffect, useState } from "react";
-import { db } from "../utils/firebase";
-import { FormControl, List, TextField } from "@material-ui/core";
-import { AddToPhotosRounded } from "@material-ui/icons";
+import { useCallback, useState } from "react";
 import { InfoModal } from "../components/InfoModal";
 import { Minus } from "../components/Minus";
 import { Pulus } from "../components/Pulus";
 import { SnsShare } from "../components/SnsShare";
-import { TaskItem } from "../components/TaskItem";
 
 export default function Home() {
   //     👇 配列の分割代入
@@ -37,48 +33,10 @@ export default function Home() {
     [count]
   );
 
-  // firebase のデータ
-  const [tasks, setTasks] = useState([{ id: "", title: "" }]);
-
-  // 👇 app 読み込みは起動時の1回だけにしたいので第2引数は []
-  useEffect(() => {
-    //    👇 返り値を受け取る変数
-    //               👇 firebase の collection データへアクセス
-    //                                    👇 onSnapshot データベースの内容を取得
-    //                                       データベース側に変化があった時に内容を取得
-    //                                              👇 firestore から取得したデータを
-    // snapshoto 引数に入れる。
-    //  👇 firebase データベースの変化を監視
-    const unSub = db.collection("tasks").onSnapshot((snapshot) => {
-      // 👇 取得した task オブジェクトの一覧を setTasks を使って tasks の state へ格納
-      setTasks(
-        // 👇 snapshot の中にドキュメントがあるので
-        snapshot.docs.map((doc) => ({
-          id: doc.id,
-          title: doc.data().title,
-        }))
-      );
-    });
-    //  クリーンナップ関数
-    return () => unSub();
-  }, []);
-
-  // 👇 ts の場合はを型指定してね。
-  const newTask = (e) => {
-    // 👇 firebase の 追加したい collection 指定。
-    // ........................👇 追加したいオブジェクトを指定。 id は自動で取得してくれるらしく、記入する必要はないそうだ。なんでかはよくわからん。
-    db.collection("tasks").add({ title: input });
-    // 👇 input state の初期化
-    setInput("");
-  };
-
-  // ユーザーが入力した文字列を保持する state 、初期値は空の文字列。
-  const [input, setInput] = useState("");
-
   return (
     <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-tr from-green-400 dark:from-gray-900 to-blue-400 dark:to-purple-800">
       <Head>
-        <title>Counter App</title>
+        <title>Count App</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
@@ -92,32 +50,10 @@ export default function Home() {
         />
         <meta
           property="og:image"
-          content="https://user-images.githubusercontent.com/68226398/119667377-33870280-be71-11eb-96d2-a9c5d21437ca.jpg"
+          content=""
         />
       </Head>
       <InfoModal />
-
-      <div>
-        <FormControl>
-          <TextField
-            id="outlined-basic"
-            variant="outlined"
-            label="Newtask?"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-          ></TextField>
-        </FormControl>
-        <button disabled={!input} onClick={newTask}>
-          <AddToPhotosRounded className="text-white dark:text-gray-400 mx-2" />
-        </button>
-
-        {/* 👇 material ui List components については未調査 */}
-        <List>
-          {tasks.map((task) => (
-            <TaskItem key={task.id} id={task.id} title={task.title} />
-          ))}
-        </List>
-      </div>
 
       <h1 className="text-4xl text-white dark:text-gray-400 font-bold select-none">
         Count - App
@@ -131,6 +67,7 @@ export default function Home() {
       <h1 className="h-30 w-40 m-28 text-8xl text-white dark:text-gray-400 text-center font-bolditems-center select-none">
         {count}
       </h1>
+
       <div className="flex">
         <div onClick={handleClickMinus}>
           <Minus />
@@ -139,6 +76,7 @@ export default function Home() {
           <Pulus />
         </div>
       </div>
+
       <div className="fixed bottom-4">
         <SnsShare
           url={"https://counter-app-theta.vercel.app/"}
@@ -148,6 +86,3 @@ export default function Home() {
     </div>
   );
 }
-
-// text-center align-middle
-// <p className="h-55 w-40 text-gray-700 flex justify-center items-center"></p>
