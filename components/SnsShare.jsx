@@ -7,11 +7,13 @@ import {
   LineIcon,
 } from "react-share";
 
-export function SnsShare(props) {
+export const SnsShare = (props) => {
   const { url, title } = props;
   return (
-    <div className="flex flex-col fixed bottom-3 left-3
-    sm:flex-row sm:static ">
+    <div
+      className="flex flex-col fixed bottom-3 left-3
+    sm:flex-row sm:static "
+    >
       <TwitterShareButton url={url} title={title}>
         <TwitterIcon
           size={32}
@@ -35,4 +37,4 @@ export function SnsShare(props) {
       </FacebookShareButton>
     </div>
   );
-}
+};
