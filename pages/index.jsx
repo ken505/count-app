@@ -5,7 +5,7 @@ import { Minus } from "../components/Minus";
 import { Pulus } from "../components/Pulus";
 import { SnsShare } from "../components/SnsShare";
 
-export default function Home() {
+const Home = () => {
   //     👇 配列の分割代入
   // const count = array[0]
   // const setCount = array[1] と同義
@@ -74,11 +74,9 @@ export default function Home() {
       </div>
 
       <div className="fixed bottom-4">
-        <SnsShare
-          url={"https://counter-app-theta.vercel.app/"}
-          title={"Counter - App"}
-        />
+        <SnsShare url={"https://count-app.vercel.app/"} title={"Count - App"} />
       </div>
     </div>
   );
-}
+};
+export default Home;
