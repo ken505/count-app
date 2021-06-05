@@ -28,13 +28,13 @@ const Home = () => {
 
   const handleClickReset = useCallback(
     (e) => {
-      setCount(0);
+      setCount((count) => 0);
     },
     [count]
   );
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-tr from-green-300 dark:from-pink-700  to-blue-400 dark:to-purple-900">
+    <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-tr from-green-400 dark:from-gray-900 to-blue-400 dark:to-purple-800">
       <Head>
         <title>Count App</title>
         <link rel="icon" href="/favicon.ico" />
@@ -56,7 +56,7 @@ const Home = () => {
       </h1>
       <h1
         onClick={handleClickReset}
-        className="h-16 w-40 bg-gradient-to-tr from-green-300 dark:from-pink-600 to-blue-300 dark:to-purple-700 shadow-2xl flex hover:opacity-70 cursor-pointer justify-center items-center rounded-2xl mt-14 text-4xl text-white dark:text-gray-400 font-bold select-none"
+        className="h-16 w-40 bg-gradient-to-tr from-green-300 dark:from-indigo-700 to-blue-300 dark:to-purple-500 shadow-2xl flex hover:opacity-70 cursor-pointer justify-center items-center rounded-2xl mt-14 text-4xl text-white dark:text-gray-400 font-bold select-none"
       >
         Clear
       </h1>
