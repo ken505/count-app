@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import Head from "next/head";
 import { useCallback, useState } from "react";
 import { InfoModal } from "../components/InfoModal";
@@ -6,13 +5,10 @@ import { Minus } from "../components/Minus";
 import { Pulus } from "../components/Pulus";
 import { SnsShare } from "../components/SnsShare";
 
-// 👇 jsx
-// const Home = () => {
-//     👇 配列の分割代入
-// const count = array[0]
-// const setCount = array[1] と同義
-
-const Home: NextPage = () => {
+const Home = () => {
+  //     👇 配列の分割代入
+  // const count = array[0]
+  // const setCount = array[1] と同義
   const [count, setCount] = useState(0);
   //                                 👆 初期値
 
