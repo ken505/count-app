@@ -28,7 +28,7 @@ const Home = () => {
 
   const handleClickReset = useCallback(
     (e) => {
-      setCount((count) => 0);
+      setCount(0);
     },
     [count]
   );
