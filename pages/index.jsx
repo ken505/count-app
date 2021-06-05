@@ -1,5 +1,6 @@
 import Head from "next/head";
-import { useCallback, useState } from "react";
+// import { NextPage } from "next";
+import { useCallback, useState} from "react";
 import { InfoModal } from "../components/InfoModal";
 import { Minus } from "../components/Minus";
 import { Pulus } from "../components/Pulus";
@@ -10,7 +11,7 @@ const Home = () => {
   // const count = array[0]
   // const setCount = array[1] と同義
   const [count, setCount] = useState(0);
-  //                                 👆 初期値
+  //                                 ........👆 初期値
 
   const handleClickPulus = useCallback(
     (e) => {
@@ -32,9 +33,13 @@ const Home = () => {
     },
     [count]
   );
-
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-tr from-green-400 dark:from-gray-900 to-blue-400 dark:to-purple-800">
+
+    <div
+      className="min-h-screen flex flex-col justify-center items-center 
+      bg-gradient-to-tr from-yellow-100 dark:from-blue-900
+      to-indigo-600 dark:to-pink-900"
+    >
       <Head>
         <title>Count App</title>
         <link rel="icon" href="/favicon.ico" />
@@ -56,7 +61,7 @@ const Home = () => {
       </h1>
       <h1
         onClick={handleClickReset}
-        className="h-16 w-40 bg-gradient-to-tr from-green-300 dark:from-indigo-700 to-blue-300 dark:to-purple-500 shadow-2xl flex hover:opacity-70 cursor-pointer justify-center items-center rounded-2xl mt-14 text-4xl text-white dark:text-gray-400 font-bold select-none"
+        className="h-16 w-40 bg-gradient-to-tr from-yellow-200 dark:from-blue-900 to-indigo-500 dark:to-pink-600 shadow-2xl flex hover:opacity-70 cursor-pointer justify-center items-center rounded-2xl mt-14 text-4xl text-white dark:text-gray-400 font-bold  select-none"
       >
         Clear
       </h1>
