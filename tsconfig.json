@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "pages/_app.jsx", "utils/firebase.js", "pages/index.jsx"  ],
+, "pages/_app.tsx", "utils/firebase.js", "pages/index.tsx"  ],
   "exclude": [
     "node_modules"
   ]
