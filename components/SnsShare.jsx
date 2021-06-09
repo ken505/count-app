@@ -14,21 +14,32 @@ export const SnsShare = (props) => {
       className="flex flex-col fixed bottom-3 left-3
     sm:flex-row sm:static "
     >
-      <TwitterShareButton url={url} title={title}>
+      <TwitterShareButton
+        className="focus:outline-none focus:ring rounded-md"
+        url={url}
+        title={title}
+      >
         <TwitterIcon
           size={32}
           round
           className="hover:opacity-70 dark:opacity-40 mx-1 my-1"
         />
       </TwitterShareButton>
-      <LineShareButton url={url} title={title}>
+      <LineShareButton
+        className="focus:outline-none focus:ring rounded-md"
+        url={url}
+        title={title}
+      >
         <LineIcon
           size={32}
           round
           className=" hover:opacity-70 dark:opacity-40 mx-1 my-1"
         />
       </LineShareButton>
-      <FacebookShareButton url={url}>
+      <FacebookShareButton
+        className="focus:outline-none focus:ring rounded-md"
+        url={url}
+      >
         <FacebookIcon
           size={32}
           round
